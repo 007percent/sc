@@ -1,0 +1,130 @@
+local Luna = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebula-Softworks/Luna-Interface-Suite/refs/heads/main/source.lua", true))()
+
+local Window = Luna:CreateWindow({
+	Name = "CitrusVault V1 - Broken Bones IV", -- This Is Title Of Your Window
+	Subtitle = nil, -- A Gray Subtitle next To the main title.
+	LogoID = "nil", -- The Asset ID of your logo. Set to nil if you do not have a logo for Luna to use.
+	LoadingEnabled = true, -- Whether to enable the loading animation. Set to false if you do not want the loading screen or have your own custom one.
+	LoadingTitle = "CitrusVault V1", -- Header for loading screen
+	LoadingSubtitle = "Game Detected: Broken Bones IV", -- Subtitle for loading screen
+
+	ConfigSettings = {
+		RootFolder = nil, -- The Root Folder Is Only If You Have A Hub With Multiple Game Scripts and u may remove it. DO NOT ADD A SLASH
+		ConfigFolder = "CitrusVault" -- The Name Of The Folder Where Luna Will Store Configs For This Script. DO NOT ADD A SLASH
+	},
+
+	KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
+	KeySettings = {
+		Title = "Luna Example Key",
+		Subtitle = "Key System",
+		Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
+		SaveInRoot = false, -- Enabling will save the key in your RootFolder (YOU MUST HAVE ONE BEFORE ENABLING THIS OPTION)
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		Key = {"Example Key"}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
+		SecondAction = {
+			Enabled = true, -- Set to false if you do not want a second action,
+			Type = "Link", -- Link / Discord.
+			Parameter = "" -- If Type is Discord, then put your invite link (DO NOT PUT DISCORD.GG/). Else, put the full link of your key system here.
+		}
+	}
+})
+
+local Tab = Window:CreateTab({
+	Name = "Main",
+	Icon = "house",
+	ImageSource = "Material",
+	ShowTitle = true -- This will determine whether the big header text in the tab will show
+})
+Tab:CreateSection("Main")
+
+local Button = Tab:CreateButton({
+	Name = "Auto Upgrade All(Dupeable)",
+	Description = "Upgrades Everything to Level 1000. You can repeat this over and over.", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+for i = 1, 10 do
+    coroutine.wrap(function()
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("elasticitylevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("frictionlevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("cooldownlevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("fuellevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("jumplevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("speedlevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("breakslevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("sprainslevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("flightlevel", 100)
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer("dislocationslevel", 100)
+    end)()
+end
+task.wait(0.5)
+game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+    	end
+})
+
+local Button = Tab:CreateButton({
+	Name = "Level Autofarm",
+	Description = "I will try to figure out how to make an Level Giver Script.You're gonna have to stick with this for now.", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+  loadstring(game:HttpGet("https://pastebin.com/raw/Ducbvr7F"))()
+    	end
+})
+
+local Button = Tab:CreateButton({
+	Name = "Infinite Money(Dupeable)",
+	Description = "Gives you an unlimited amount of Money. You can repeat this over and over.", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+local args = {
+    [1] = "money",
+    [2] = 15e14
+}
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer(unpack(args))
+task.wait(0.5)
+game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+    	end
+})
+
+local Button = Tab:CreateButton({
+	Name = "Unlock Gravity Ball",
+	Description = "Gives you an Gravity Ball. Pretty fun", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+        game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer(unpack(args))
+local args = {
+        [1] = "Gravity Bubble",
+        [2] = 5,
+        [3] = true
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer(unpack(args))
+    local args = {
+    [1] = "utility",
+    [2] = "Gravity Bubble",
+        [3] = true
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("UpdateStat"):InvokeServer(unpack(args))
+task.wait(0.5)
+game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+    	end
+})
+
+local Tab = Window:CreateTab({
+	Name = "Misc",
+	Icon = "settings",
+	ImageSource = "Material",
+	ShowTitle = true -- This will determine whether the big header text in the tab will show
+})
+Tab:CreateSection("Misc")
+local Button = Tab:CreateButton({
+	Name = "Destroy UI",
+	Description = "Destroys the UI", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+        Luna:Destroy()    	
+    end
+})
+
+local Button = Tab:CreateButton({
+	Name = "Copy Discord Link",
+	Description = "If you want more Scripts like these, Join our Server!", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+setclipboard("https://discord.gg/srz5dgpJQt!")
+    end
+})

@@ -1,0 +1,34 @@
+local SUPPORTED_GAMES = {
+    [2551991523] = "https://raw.githubusercontent.com/007percent/sc/refs/heads/main/ds",
+}
+
+local function LoadScript(url)
+    local success, response = pcall(function()
+        local cacheBuster = "?t=" .. tick()
+        local fullUrl = url .. cacheBuster
+        
+        return loadstring(game:HttpGet(fullUrl, true))()
+    end)
+    
+    if not success then
+        warn("Failed to load script: " .. tostring(response))
+        return false
+    end
+    return true
+end
+
+local placeId = game.PlaceId
+
+if SUPPORTED_GAMES[placeId] then
+    print("CitrusVault: Loading script for game ID " .. placeId)
+    task.wait(0.05)
+    
+    if not LoadScript(SUPPORTED_GAMES[placeId]) then
+        warn("CitrusVault: Failed to load script for this game")
+    end
+else
+    warn(string.format(
+        "CitrusVault: Game (PlaceID: %d) is not supported by this hub", 
+        placeId
+    ))
+end
